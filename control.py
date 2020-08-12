@@ -45,7 +45,7 @@ win = visual.Window(fullscr=True, units='height')
 mouse = event.Mouse(visible=False)
 
 # set range of coordinates: y range is defined to (-0.5, 0.5),
-# x range is caclulated from window size
+# x range is calculated from window size
 sizeX = win.size[0]
 sizeY = win.size[1]
 maxY = 0.5
