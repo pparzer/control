@@ -4,7 +4,7 @@
 """Control Task"""
 
 from psychopy import visual, core, event, gui
-import random, time
+import random, time, os
 
 # configuration variables
 totalTime = 60          # duration of the task
@@ -33,14 +33,25 @@ if info['Version'] == 'easy':
     switchTime = totalTime + 1
 
 # create filename from subject ID and timestamp of experiment 
+if not os.path.isdir("data"):
+    os.mkdir("data")
 dataFile = 'data/' + info['ID'] + '.csv'
 f = open(dataFile, 'w')
 f.write('time,mouse_x,mouse_y,noise_x,noise_y,target_x,target_y,reverse\n')
 
 # create window
-#win = visual.Window(size=(1024,768), monitor='testMonitor')
+#win = visual.Window(size=(1024,800), units='height')
 win = visual.Window(fullscr=True, units='height')
 mouse = event.Mouse(visible=False)
+
+# set range of coordinates: y range is defined to (-0.5, 0.5),
+# x range is caclulated from window size
+sizeX = win.size[0]
+sizeY = win.size[1]
+maxY = 0.5
+minY = -0.5
+maxX = 0.5 * sizeX / sizeY
+minX = -maxX
 
 # init visuals
 instruction = visual.TextStim(win, wrapWidth=1.5, height=0.03, pos=(0,0),
@@ -58,7 +69,7 @@ instruction.draw()
 win.flip()
 event.waitKeys()
 win.flip()
-core.wait(1)
+core.wait(0.5)
 
 # show visuals
 hline.autoDraw = True
@@ -74,10 +85,6 @@ noiseX = 0
 noiseY = 0
 deltaX = 0
 deltaY = 0
-maxX = 0.7
-minX = -0.7
-maxY = 0.5
-minY = -0.5
 reverse = 0
 
 # start timer
@@ -141,6 +148,6 @@ win.flip()
 
 # clean up
 f.close()
-core.wait(1)
+core.wait(0.3)
 win.close()
 core.quit()

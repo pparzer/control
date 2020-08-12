@@ -1,8 +1,8 @@
 // Plot data created with the PsychoPy control task
 set scheme s1mono
 
-// task ID
-local id "pp3"
+// set to the task ID
+local id "x"
 
 // import data from control task
 import delimited data/`id'.csv, clear
@@ -17,5 +17,3 @@ line mouse_y time, lcolor(black) ///
   xtitle("time [s]") ytitle("vertical position") ///
   `xline' legend(off) ylab(-.5(.5).5)
  
-graph export Figure_`id'.png, width(2000) replace
-graph export Figure_`id'.eps, replace
