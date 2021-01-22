@@ -7,8 +7,9 @@ possible to the center of the screen marked by a white cross. The position of
 the dot can be changed by moving the computer mouse, but a computer-generated
 random process simulates an environmental disturbance invisible to the subject,
 that is added to the mouse position. To keep the dot close to the cross, the
-subject has to compensate the disturbance by moving the mouse. The control task
-is thus a model of a two-dimensional control loop. 
+subject has to compensate the disturbance by moving the mouse. 
+
+The control task is thus a model of a two-dimensional control loop. 
 
 There are two versions of the task. In the "easy" version the effect of the mouse
 on the dot is as expected. Moving the mouse upwards moves the dot upwards,
